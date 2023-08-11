@@ -1,0 +1,270 @@
+% =====  AAA:
+% Correlation
+\newcommand{\corr}{\rho}
+% Admission subscript
+\newcommand{\subA}{A}
+% Work subscript
+\newcommand{\subWork}{w}
+% Quality subscript
+\newcommand{\subQual}{q}
+% College subscript
+\newcommand{\subColl}{coll}
+% Probability
+\newcommand{\prob}{\Pr}
+% Graduation subscript
+\newcommand{\subG}{g}
+% Dropout subscript
+\newcommand{\subD}{d}
+% ----------
+% =====  Admissions:
+% Prob of observing true quality
+\newcommand{\prObsQ}{\pi}
+% Quality signal
+\newcommand{\qSignal}{\hat{q}}
+% Admission probability
+\newcommand{\prAdmit}{\Pr_{admit}}
+% Set of colleges a student is admitted to
+\newcommand{\admSet}{\mathcal{S}}
+% Student ranking weights
+\newcommand{\rankWt}{\nu}
+% ----------
+% =====  College:
+% Tuition
+\newcommand{\tuition}{\tau}
+% Wage boost in two year college
+\newcommand{\boostTwoYr}{\Delta w}
+% Max time in college
+\newcommand{\tMaxColl}{T}
+% Number of college qualities
+\newcommand{\nc}{N_{q}}
+% Wage in college
+\newcommand{\wageColl}{w}
+% Borrowing limit
+\newcommand{\kMin}{\underline{k}}
+% College quality
+\newcommand{\qual}{q}
+% Transfer
+\newcommand{\transfer}{z}
+% ----------
+% =====  College finances:
+% Base tuition by quality
+\newcommand{\tuitionBaseV}{\tau_{q,base}}
+% Parental gradient
+\newcommand{\tuitionYpGrad}{\beta_{\tau,p}}
+% Tuition shifter
+\newcommand{\tuiShifter}{\hat{\tau}}
+% GPA gradient
+\newcommand{\tuitionGpaGrad}{\beta_{\tau,g}}
+% College cost (tuition)
+\newcommand{\collCost}{\tau}
+% ----------
+% =====  Demographics:
+% Lifespan
+\newcommand{\Tmax}{T}
+% age
+\newcommand{\age}{t}
+% Physical age of HS graduation
+\newcommand{\ageOne}{t=1}
+% Last age of work
+\newcommand{\tWorkEnd}{T_r}
+% ----------
+% =====  Endowments:
+% Range of high school h endowments
+\newcommand{\kEndowRange}{\Delta \kEndow}
+% Number of locations
+\newcommand{\nLoc}{N_{\iota}}
+% Alpha parameter of asset Beta distribution
+\newcommand{\kBetaAlpha}{\alpha_{\kEndow}}
+% Weight on ability when drawing $\hEndow$
+\newcommand{\hOneWtA}{\beta_{h,a}}
+% Human capital endowment
+\newcommand{\hEndow}{h_1}
+% Weight on parental when drawing $\kEndow$
+\newcommand{\kWtP}{\beta_{\kEndow,p}}
+% Max of high school h endowment
+\newcommand{\kEndowMax}{\kEndow_{max}}
+% Human capital
+\newcommand{\hc}{h}
+% Max of h endowment
+\newcommand{\hEndowMax}{h_{1,max}}
+% Beta parameter of asset Beta distribution
+\newcommand{\kBetaBeta}{\beta_{\kEndow}}
+% Range of h endowments
+\newcommand{\hEndowRange}{\Delta h_{1}}
+% Standard deviation of noise when drawing HS GPA
+\newcommand{\hsGpaSigma}{\sigma{\gpa,p}}
+% Weight on parental when drawing $\hEndow$
+\newcommand{\hOneWtP}{\beta_{h,p}}
+% Standard deviation of noise when drawing $\hEndow$
+\newcommand{\hOneSigma}{\sigma_{h,p}}
+% Vector of fixed endowments
+\newcommand{\eFixedV}{\bar{s}}
+% Type
+\newcommand{\sType}{j}
+% Number of types
+\newcommand{\nTypes}{J}
+% Weight on parental when drawing HS GPA
+\newcommand{\hsGpaWtP}{\beta_{\gpa,p}}
+% Asset endowment
+\newcommand{\kEndow}{k_{1}}
+% Alpha parameter of h Beta distribution
+\newcommand{\hBetaAlpha}{\alpha_{h}}
+% Min of h endowment
+\newcommand{\hEndowMin}{h_{1,min}}
+% Location
+\newcommand{\sLoc}{\iota}
+% HS GPA
+\newcommand{\gpa}{g}
+% Ability
+\newcommand{\abil}{a}
+% Min of high school h endowment
+\newcommand{\kEndowMin}{\kEndow_{min}}
+% Standard deviation of noise when drawing $\kEndow$
+\newcommand{\kSigma}{\sigma{\kEndow}}
+% Weight on ability when drawing HS GPA
+\newcommand{\hsGpaWtA}{\beta_{\gpa,a}}
+% Beta parameter of h Beta distribution
+\newcommand{\hBetaBeta}{\beta_{h}}
+% Parental background
+\newcommand{\yp}{p}
+% H endowment pre transformation
+\newcommand{\hEndowRaw}{\tilde{h}_1}
+% Weight on ability when drawing $\kEndow$
+\newcommand{\kWtA}{\beta_{\kEndow,a}}
+% ----------
+% =====  GradRule:
+% First year where graduation possible
+\newcommand{\tGradMin}{T_{g}}
+% Logistic parameter
+\newcommand{\probGradTwister}{\gamma_2}
+% Graduation probability at $h_{min}$
+\newcommand{\probHminV}{\Pr_{\subG}}
+% Dropout probability
+\newcommand{\probDrop}{\prob_{\subD}}
+% Max grad prob
+\newcommand{\probGradMax}{\Pr_{g,max}}
+% Min credits to graduate
+\newcommand{\nGrad}{\underline{n}}
+% h level at which maximum graduation probability is reached
+\newcommand{\hGradMax}{h_{g,max}}
+% dh level at which maximum graduation probability is reached
+\newcommand{\dhGradMax}{dh_{g,max}}
+% Min grad prob
+\newcommand{\probGradMin}{\Pr_{g,min}}
+% Min h to graduate
+\newcommand{\hGrad}{\underline{h}}
+% Logistic parameter
+\newcommand{\probGradShifter}{\gamma_1}
+% Probability of graduation
+\newcommand{\probGrad}{\prob_{\subG}}
+% ----------
+% =====  H production:
+% Exponent on h
+\newcommand{\hExpH}{\gamma}
+% Productivity by college
+\newcommand{\hTfpGrad}{A_{\subQ}}
+% h at end of period
+\newcommand{\hEnd}{\hat{h}}
+% Productivity of lowest quality college
+\newcommand{\hTfpOne}{A_{1}}
+% TFP
+\newcommand{\tfpQ}{A_{\subQ}}
+% Exponent on study time
+\newcommand{\hTimeExp}{\alpha}
+% Ability scale parameter
+\newcommand{\abilScale}{\phi}
+% Common productivity factor in h production
+\newcommand{\hTfpNeutral}{A_{0}}
+% Depreciation rate of h
+\newcommand{\deltaH}{\delta}
+% H production function
+\newcommand{\hProd}{\mathcal{H}}
+% Learning
+\newcommand{\hChange}{\Delta h}
+% ----------
+% =====  Preferences:
+% Preference shock scale for entry decisions
+\newcommand{\pScaleEntry}{\pi_{e}}
+% Marginal utility shifter in college
+\newcommand{\mucFactor}{\mu}
+% Discount factor
+\newcommand{\discFactor}{\beta}
+% Utility function at work
+\newcommand{\uWork}{\mathcal{U_{work}}}
+% Utility of workers (usually same as in college)
+\newcommand{\uFct}{\mathcal{U}}
+% Curvature u(c)
+\newcommand{\cCurv}{\phi}
+% Curvature u(l)
+\newcommand{\lCurv}{\zeta}
+% Free consumption in college
+\newcommand{\cFree}{\bar{c}}
+% Utility function in college
+\newcommand{\uCollege}{\mathcal{U_{coll}}}
+% ----------
+% =====  Students:
+% Number of courses taken this period
+\newcommand{\nTried}{n}
+% State in college
+\newcommand{\stColl}{s}
+% Number of courses taken (cum.)
+\newcommand{\nTaken}{\bar{n}}
+% ----------
+% =====  Value functions:
+% Value of work/study choice
+\newcommand{\vWorkStudy}{V^{ws}}
+% Value at high school graduation
+\newcommand{\vHSG}{V^{HSG}}
+% Value of working
+\newcommand{\vWork}{W}
+% Value of choosing a signal
+\newcommand{\vSignal}{\mathcal{\hat{V}}}
+% Value of being admitted
+\newcommand{\vAdmit}{V^{admit}}
+% Value of entering a college
+\newcommand{\vEnter}{V^{entry}}
+% Value of starting college
+\newcommand{\vColl}{\mathcal{V}}
+% Value at end of period in college
+\newcommand{\vCollEnd}{V^e}
+% ----------
+% =====  Workers:
+% Leisure (job amenities) 
+\newcommand{\leisureV}{\ell_{s}}
+% Efficiency by experience
+\newcommand{\xpEff}{f}
+% College wage premium
+\newcommand{\dWage}{\Delta w}
+% State of worker
+\newcommand{\stWorkStart}{\hat{s}}
+% H aggregator
+\newcommand{\hAggr}{H}
+% Wage
+\newcommand{\wage}{w}
+% Earnings
+\newcommand{\earn}{y}
+% Age of work start
+\newcommand{\twStart}{t_{w}}
+% Curvature of h aggregator
+\newcommand{\hCurv}{\chi}
+% Worker aggregate h
+\newcommand{\hWk}{\tilde{h}}
+% Educational attainment
+\newcommand{\educ}{e}
+% Age of last work period
+\newcommand{\twEnd}{T_{w}}
+% CD
+\newcommand{\SC}{CD}
+% Experience
+\newcommand{\exper}{x}
+% Lifetime earnings
+\newcommand{\ltEarn}{Y}
+% Length of work period
+\newcommand{\tWork}{T_w}
+% HSG
+\newcommand{\HSG}{HSG}
+% Weight on h in H aggregator
+\newcommand{\wtH}{\omega}
+% CG
+\newcommand{\CG}{CG}
+% ----------

@@ -1,0 +1,207 @@
+AAA
+
+\begin{tabular}{lll}
+\hline
+$A$ & subA & Admission subscript\tabularnewline
+$\Pr$ & prob & Probability\tabularnewline
+$\rho$ & corr & Correlation\tabularnewline
+$coll$ & subColl & College subscript\tabularnewline
+$d$ & subD & Dropout subscript\tabularnewline
+$g$ & subG & Graduation subscript\tabularnewline
+$q$ & subQual & Quality subscript\tabularnewline
+$w$ & subWork & Work subscript\tabularnewline
+\hline
+\end{tabular}
+ 
+Admissions
+
+\begin{tabular}{lll}
+\hline
+$\Pr_{admit}$ & prAdmit & Admission probability\tabularnewline
+$\hat{q}$ & qSignal & Quality signal\tabularnewline
+$\mathcal{S}$ & admSet & Set of colleges a student is admitted to\tabularnewline
+$\nu$ & rankWt & Student ranking weights\tabularnewline
+$\pi$ & prObsQ & Prob of observing true quality\tabularnewline
+\hline
+\end{tabular}
+ 
+College
+
+\begin{tabular}{lll}
+\hline
+$N_{q}$ & nc & Number of college qualities\tabularnewline
+$T$ & tMaxColl & Max time in college\tabularnewline
+$\Delta w$ & boostTwoYr & Wage boost in two year college\tabularnewline
+$\tau$ & tuition & Tuition\tabularnewline
+$\underline{k}$ & kMin & Borrowing limit\tabularnewline
+$q$ & qual & College quality\tabularnewline
+$w$ & wageColl & Wage in college\tabularnewline
+$z$ & transfer & Transfer\tabularnewline
+\hline
+\end{tabular}
+ 
+College finances
+
+\begin{tabular}{lll}
+\hline
+$\beta_{\tau,g}$ & tuitionGpaGrad & GPA gradient\tabularnewline
+$\beta_{\tau,p}$ & tuitionYpGrad & Parental gradient\tabularnewline
+$\hat{\tau}$ & tuiShifter & Tuition shifter\tabularnewline
+$\tau$ & collCost & College cost (tuition)\tabularnewline
+$\tau_{q,base}$ & tuitionBaseV & Base tuition by quality\tabularnewline
+\hline
+\end{tabular}
+ 
+Demographics
+
+\begin{tabular}{lll}
+\hline
+$T$ & Tmax & Lifespan\tabularnewline
+$T_r$ & tWorkEnd & Last age of work\tabularnewline
+$t$ & age & age\tabularnewline
+$t=1$ & ageOne & Physical age of HS graduation\tabularnewline
+\hline
+\end{tabular}
+ 
+Endowments
+
+\begin{tabular}{lll}
+\hline
+$J$ & nTypes & Number of types\tabularnewline
+$N_{\iota}$ & nLoc & Number of locations\tabularnewline
+$\Delta \kEndow$ & kEndowRange & Range of high school h endowments\tabularnewline
+$\Delta h_{1}$ & hEndowRange & Range of h endowments\tabularnewline
+$\alpha_{\kEndow}$ & kBetaAlpha & Alpha parameter of asset Beta distribution\tabularnewline
+$\alpha_{h}$ & hBetaAlpha & Alpha parameter of h Beta distribution\tabularnewline
+$\bar{s}$ & eFixedV & Vector of fixed endowments\tabularnewline
+$\beta_{\gpa,a}$ & hsGpaWtA & Weight on ability when drawing HS GPA\tabularnewline
+$\beta_{\gpa,p}$ & hsGpaWtP & Weight on parental when drawing HS GPA\tabularnewline
+$\beta_{\kEndow,a}$ & kWtA & Weight on ability when drawing $\kEndow$\tabularnewline
+$\beta_{\kEndow,p}$ & kWtP & Weight on parental when drawing $\kEndow$\tabularnewline
+$\beta_{\kEndow}$ & kBetaBeta & Beta parameter of asset Beta distribution\tabularnewline
+$\beta_{h,a}$ & hOneWtA & Weight on ability when drawing $\hEndow$\tabularnewline
+$\beta_{h,p}$ & hOneWtP & Weight on parental when drawing $\hEndow$\tabularnewline
+$\beta_{h}$ & hBetaBeta & Beta parameter of h Beta distribution\tabularnewline
+$\iota$ & sLoc & Location\tabularnewline
+$\kEndow_{max}$ & kEndowMax & Max of high school h endowment\tabularnewline
+$\kEndow_{min}$ & kEndowMin & Min of high school h endowment\tabularnewline
+$\sigma_{h,p}$ & hOneSigma & Standard deviation of noise when drawing $\hEndow$\tabularnewline
+$\sigma{\gpa,p}$ & hsGpaSigma & Standard deviation of noise when drawing HS GPA\tabularnewline
+$\sigma{\kEndow}$ & kSigma & Standard deviation of noise when drawing $\kEndow$\tabularnewline
+$\tilde{h}_1$ & hEndowRaw & H endowment pre transformation\tabularnewline
+$a$ & abil & Ability\tabularnewline
+$g$ & gpa & HS GPA\tabularnewline
+$h$ & hc & Human capital\tabularnewline
+$h_1$ & hEndow & Human capital endowment\tabularnewline
+$h_{1,max}$ & hEndowMax & Max of h endowment\tabularnewline
+$h_{1,min}$ & hEndowMin & Min of h endowment\tabularnewline
+$j$ & sType & Type\tabularnewline
+$k_{1}$ & kEndow & Asset endowment\tabularnewline
+$p$ & yp & Parental background\tabularnewline
+\hline
+\end{tabular}
+ 
+GradRule
+
+\begin{tabular}{lll}
+\hline
+$T_{g}$ & tGradMin & First year where graduation possible\tabularnewline
+$\Pr_{\subG}$ & probHminV & Graduation probability at $h_{min}$\tabularnewline
+$\Pr_{g,max}$ & probGradMax & Max grad prob\tabularnewline
+$\Pr_{g,min}$ & probGradMin & Min grad prob\tabularnewline
+$\gamma_1$ & probGradShifter & Logistic parameter\tabularnewline
+$\gamma_2$ & probGradTwister & Logistic parameter\tabularnewline
+$\prob_{\subD}$ & probDrop & Dropout probability\tabularnewline
+$\prob_{\subG}$ & probGrad & Probability of graduation\tabularnewline
+$\underline{h}$ & hGrad & Min h to graduate\tabularnewline
+$\underline{n}$ & nGrad & Min credits to graduate\tabularnewline
+$dh_{g,max}$ & dhGradMax & dh level at which maximum graduation probability is reached\tabularnewline
+$h_{g,max}$ & hGradMax & h level at which maximum graduation probability is reached\tabularnewline
+\hline
+\end{tabular}
+ 
+H production
+
+\begin{tabular}{lll}
+\hline
+$A_{0}$ & hTfpNeutral & Common productivity factor in h production\tabularnewline
+$A_{1}$ & hTfpOne & Productivity of lowest quality college\tabularnewline
+$A_{\subQ}$ & hTfpGrad & Productivity by college\tabularnewline
+$A_{\subQ}$ & tfpQ & TFP\tabularnewline
+$\Delta h$ & hChange & Learning\tabularnewline
+$\alpha$ & hTimeExp & Exponent on study time\tabularnewline
+$\delta$ & deltaH & Depreciation rate of h\tabularnewline
+$\gamma$ & hExpH & Exponent on h\tabularnewline
+$\hat{h}$ & hEnd & h at end of period\tabularnewline
+$\mathcal{H}$ & hProd & H production function\tabularnewline
+$\phi$ & abilScale & Ability scale parameter\tabularnewline
+\hline
+\end{tabular}
+ 
+Preferences
+
+\begin{tabular}{lll}
+\hline
+$\bar{c}$ & cFree & Free consumption in college\tabularnewline
+$\beta$ & discFactor & Discount factor\tabularnewline
+$\mathcal{U_{coll}}$ & uCollege & Utility function in college\tabularnewline
+$\mathcal{U_{work}}$ & uWork & Utility function at work\tabularnewline
+$\mathcal{U}$ & uFct & Utility of workers (usually same as in college)\tabularnewline
+$\mu$ & mucFactor & Marginal utility shifter in college\tabularnewline
+$\phi$ & cCurv & Curvature u(c)\tabularnewline
+$\pi_{e}$ & pScaleEntry & Preference shock scale for entry decisions\tabularnewline
+$\zeta$ & lCurv & Curvature u(l)\tabularnewline
+\hline
+\end{tabular}
+ 
+Students
+
+\begin{tabular}{lll}
+\hline
+$\bar{n}$ & nTaken & Number of courses taken (cum.)\tabularnewline
+$n$ & nTried & Number of courses taken this period\tabularnewline
+$s$ & stColl & State in college\tabularnewline
+\hline
+\end{tabular}
+ 
+Value functions
+
+\begin{tabular}{lll}
+\hline
+$V^e$ & vCollEnd & Value at end of period in college\tabularnewline
+$V^{HSG}$ & vHSG & Value at high school graduation\tabularnewline
+$V^{admit}$ & vAdmit & Value of being admitted\tabularnewline
+$V^{entry}$ & vEnter & Value of entering a college\tabularnewline
+$V^{ws}$ & vWorkStudy & Value of work/study choice\tabularnewline
+$W$ & vWork & Value of working\tabularnewline
+$\mathcal{V}$ & vColl & Value of starting college\tabularnewline
+$\mathcal{\hat{V}}$ & vSignal & Value of choosing a signal\tabularnewline
+\hline
+\end{tabular}
+ 
+Workers
+
+\begin{tabular}{lll}
+\hline
+$CD$ & SC & CD\tabularnewline
+$CG$ & CG & CG\tabularnewline
+$H$ & hAggr & H aggregator\tabularnewline
+$HSG$ & HSG & HSG\tabularnewline
+$T_w$ & tWork & Length of work period\tabularnewline
+$T_{w}$ & twEnd & Age of last work period\tabularnewline
+$Y$ & ltEarn & Lifetime earnings\tabularnewline
+$\Delta w$ & dWage & College wage premium\tabularnewline
+$\chi$ & hCurv & Curvature of h aggregator\tabularnewline
+$\ell_{s}$ & leisureV & Leisure (job amenities) \tabularnewline
+$\hat{s}$ & stWorkStart & State of worker\tabularnewline
+$\omega$ & wtH & Weight on h in H aggregator\tabularnewline
+$\tilde{h}$ & hWk & Worker aggregate h\tabularnewline
+$e$ & educ & Educational attainment\tabularnewline
+$f$ & xpEff & Efficiency by experience\tabularnewline
+$t_{w}$ & twStart & Age of work start\tabularnewline
+$w$ & wage & Wage\tabularnewline
+$x$ & exper & Experience\tabularnewline
+$y$ & earn & Earnings\tabularnewline
+\hline
+\end{tabular}
+ 

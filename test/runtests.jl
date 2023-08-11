@@ -1,6 +1,12 @@
-using BaseMM
-using Test
+using BaseMM, Test;
 
-@testset "BaseMM.jl" begin
-    # Write your tests here.
+@testset "All" begin
+    include("directories_test.jl");
+    include("unit_conversion_test.jl");
+    include("notation_test.jl");
+    include("display_test.jl");
+    include("helpers_test.jl");
+    include("school_groups_test.jl");
 end
+
+# ---------------
