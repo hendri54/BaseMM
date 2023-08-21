@@ -45,7 +45,7 @@ export ModelDollars, DataDollars, MDollars, DDollars;
 
 # Helpers
 export present_value, pv_factor, save_text_file, data_model_labels;
-export array_to_df;
+export array_to_df, add_array_to_df!;
 export CustomRNG;
 
 # Debugging

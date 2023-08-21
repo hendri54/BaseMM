@@ -1,5 +1,5 @@
 # Time units
-export AbstractTimeUnit, TuYear, TuMonth, TuWeek, TuDay, TuHour;
+export AbstractTimeUnit, TuYear, TuMonth, TuWeek, TuDay, TuHour, TuHoursPerWeek;
 export time_factor;
 
 
@@ -18,8 +18,11 @@ abstract type AbstractTimeUnit end;
 struct TuYear <: AbstractTimeUnit end;
 struct TuMonth <: AbstractTimeUnit end;
 struct TuWeek <: AbstractTimeUnit end;
+# Days per year
 struct TuDay <: AbstractTimeUnit end;
+# Hours per year
 struct TuHour <: AbstractTimeUnit end;
+struct TuHoursPerWeek <: AbstractTimeUnit end;
 
 # Multiply dollar values by this factor to make it annual
 time_factor(::TuYear) = 1;
@@ -27,7 +30,7 @@ time_factor(::TuMonth) = 12;
 time_factor(::TuWeek) = weeksPerYear;
 time_factor(::TuDay) = daysPerYear;
 time_factor(::TuHour) = hoursPerYear;
-    
+time_factor(::TuHoursPerWeek) = hoursPerWeek;
 
 
 ## ------------  Convert data to model time units
@@ -41,20 +44,20 @@ function hours_per_week_to_mtu(hours)
     return hours ./ hoursPerWeek;
 end
 
-function time_factor(timeUnit :: Symbol)
-    if timeUnit == :weeksPerYear
-        tf = weeksPerYear;
-    elseif timeUnit == :daysPerYear
-        tf = daysPerYear;
-    elseif timeUnit == :hoursPerYear
-        tf = hoursPerYear;
-    elseif timeUnit == :hoursPerWeek
-        tf = hoursPerWeek;
-    else
-        error("Invalid timeUnit: $timeUnit")
-    end
-    return tf
-end
+# function time_factor(timeUnit :: Symbol)
+#     if timeUnit == :weeksPerYear
+#         tf = weeksPerYear;
+#     elseif timeUnit == :daysPerYear
+#         tf = daysPerYear;
+#     elseif timeUnit == :hoursPerYear
+#         tf = hoursPerYear;
+#     elseif timeUnit == :hoursPerWeek
+#         tf = hoursPerWeek;
+#     else
+#         error("Invalid timeUnit: $timeUnit")
+#     end
+#     return tf
+# end
 
 
 """

@@ -12,6 +12,13 @@ Move to FilesLH
 
 ## Change Log 2023
 
+Aug-12
+- removed symbol based time conversions and dollar conversions
+- removed `dollars_to_data_units`
+- removed `check_dollar_values` with `Bool` argument
+- added AbstractClassifications
+Aug-11
+- added `add_array_to_df!`
 Aug-8 (v1.3)
 - converted from CollegeStratBase
 - removed course conversions

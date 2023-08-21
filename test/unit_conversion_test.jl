@@ -1,11 +1,9 @@
 function dollars_test()
 	@testset "Dollars" begin
 		dDollars = 1000.0;
-		mDollars = dollars_data_to_model(dDollars, :perYear);
-        dDollars2 = dollars_model_to_data(mDollars, :perYear);
+		mDollars = dollars_data_to_model(dDollars, TuYear());
+        dDollars2 = dollars_model_to_data(mDollars, TuYear());
         @test isapprox(dDollars, dDollars2)
-        @test isapprox(mDollars, dollars_data_to_model(dDollars, TuYear()));
-        @test isapprox(dDollars, dollars_model_to_data(mDollars, TuYear()));
 
         @test isapprox(mDollars, dollar_convert(dDollars, DDollars(), MDollars()));
         @test isapprox(dDollars, dollar_convert(dDollars, DDollars(), DDollars()));
@@ -14,9 +12,9 @@ function dollars_test()
         dollar_convert!(v, DDollars(), MDollars());
         @test isapprox(only(v), mDollars);
 
-		mDollars3 = dollars_data_to_model(dDollars, :perDay);
+		mDollars3 = dollars_data_to_model(dDollars, TuDay());
 		@test mDollars3 > 300 * mDollars
-		dDollars3 = dollars_model_to_data(mDollars3, :perDay);
+		dDollars3 = dollars_model_to_data(mDollars3, TuDay());
 		@test dDollars3 ≈ dDollars
 
         mDollarV = [1.2, 2.3];
@@ -53,7 +51,7 @@ function time_units_test()
         @test mtu ≈ mtu2
 
         modelHours = [0.2, 0.7];
-        for timeFactor ∈ [:weeksPerYear, :daysPerYear, :hoursPerYear, :hoursPerWeek]
+        for timeFactor ∈ [TuWeek(), TuDay(), TuHour(), TuHoursPerWeek()]
             hd = hours_mtu_to_data(modelHours, timeFactor);
             @test all(hd .> 0.0)
             @test all(hd .< BaseMM.hoursPerYear)
@@ -61,7 +59,7 @@ function time_units_test()
             @test all(hm .≈ modelHours)
         end
 
-        hd = hours_mtu_to_data(modelHours, :hoursPerWeek);
+        hd = hours_mtu_to_data(modelHours, TuHoursPerWeek());
         hd2 = mtu_to_hours_per_week(modelHours);
         @test all(hd .≈ hd2)
     end

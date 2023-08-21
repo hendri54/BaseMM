@@ -37,6 +37,23 @@ function array_to_df(m :: AbstractArray{T,N}, grpVars;
 end
 
 """
+	$(SIGNATURES)
+
+Add a Matrix to a DataFrame that has one row for each combination of the variables in `labelV` (presumably created by `array_to_df`).
+This adds a new variable to `df`. It does not add columns.
+"""
+function add_array_to_df!(df :: AbstractDataFrame, m :: AbstractArray, grpVars;
+        labelV = nothing, yStr = "Data")
+    if isnothing(labelV)
+        labelV = var_labels(grpVars);
+    end
+    @assert !hasproperty(df, yStr);
+    df2 = array_to_df(m, grpVars; labelV, yStr);
+    leftjoin!(df, df2; on = labelV);
+end
+
+
+"""
 Create an array such that vec(idxM) matches the indices that go with 
 vec(m) for any array m.
 Test: implicit in test of matrix_to_df_data_model.
