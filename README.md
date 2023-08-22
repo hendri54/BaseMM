@@ -12,7 +12,7 @@ Move to FilesLH
 
 ## Change Log 2023
 
-Aug-12
+Aug-12 (v1.4)
 - removed symbol based time conversions and dollar conversions
 - removed `dollars_to_data_units`
 - removed `check_dollar_values` with `Bool` argument
