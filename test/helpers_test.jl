@@ -1,5 +1,16 @@
 using BaseMM, CategoricalArrays, DataFrames, Random, Test
 
+function all_approx_test()
+    @testset "All approx" begin
+        xTg = 2.343;
+        xM = fill(xTg, 3, 4);
+        @test all_approx(xM, xTg);
+        tol = 1e-5;
+        xM[3] -= 2 * tol;
+        @test !all_approx(xM, xTg; tol);
+    end
+end
+
 function present_value_test()
     x = 3.9;
     T = 7;
@@ -59,6 +70,7 @@ end
 
 
 @testset "Helpers" begin
+    all_approx_test();
     present_value_test();
     for nd ∈ (1, 2, 3)
         array_to_df_test(nd);        

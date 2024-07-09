@@ -1,6 +1,6 @@
 export AbstractClassification, MultiClassification, Grouping;
-export ClassAll, ClassHsGpa, ClassParental, ClassAbility;
-export ClassQuality, ClassSchooling, ClassType, ClassYear, ClassDataModel;
+export ClassAll, ClassHsGpa, ClassParental, ClassRichPoor, ClassAbility;
+export ClassQuality, ClassLastType, ClassSchooling, ClassType, ClassYear, ClassDataModel;
 
 export groupvar, n_classes, n_groupings;
 export suffix, data_suffix;
@@ -42,6 +42,7 @@ var_labels(v) = var_label(v);
 	$(SIGNATURES)
 
 String label, used for axis labels. Pass-through. Define for other types as needed.
+Contains spaces.
 """
 long_label(v :: Symbol) = string(v);
 long_label(v :: AbstractString) = v;
@@ -58,7 +59,7 @@ long_label(grpVars :: MultiClassification) =
     prod([BaseMM.long_label(grp)  for grp in grpVars]);
 
 long_labels(classVar :: AbstractClassification, n :: Integer) = 
-    ["$(long_label(classVar))$j"  for j = 1 : n];
+    ["$(long_label(classVar)) $j"  for j = 1 : n];
 
 short_labels(ds, grpVar :: AbstractClassification) = 
     short_labels(grpVar, n_classes(ds, grpVar)); # +++++
@@ -107,6 +108,7 @@ suffix(::ClassHsGpa) = "G";  # e.g., "ByG"
 short_label(::ClassHsGpa) = "Afqt";
 long_label(::ClassHsGpa) = "Afqt";  # for legends
 
+# By default: quartiles
 struct ClassParental <: AbstractClassification end
 groupvar(::ClassParental) = :parentalClass;
 suffix(::ClassParental) = "P";
@@ -114,6 +116,13 @@ suffix(::ClassParental) = "P";
 # n_classes(ms, ::ClassParental) = CollegeStratData.n_parental(ms);
 short_label(::ClassParental) = "Yp";
 long_label(::ClassParental) = "Parental";
+
+struct ClassRichPoor <: AbstractClassification end
+groupvar(::ClassRichPoor) = :richPoorClass;
+suffix(::ClassRichPoor) = "R";
+short_label(::ClassRichPoor) = "Rp";
+long_label(::ClassRichPoor) = "Rich v Poor";
+
 
 struct ClassAbility <: AbstractClassification end
 groupvar(::ClassAbility) = :abilClass;
@@ -129,6 +138,11 @@ suffix(::ClassQuality) = "Q";
 # n_classes(ms, ::ClassQuality) = n_colleges(ms);
 short_label(::ClassQuality) = "Qual";
 long_label(::ClassQuality) = "Quality";
+
+# Only for renaming regressors.
+struct ClassLastType <: AbstractClassification end;
+short_label(::ClassLastType) = "Qual";
+long_label(::ClassLastType) = "Quality";
 
 struct ClassYear <: AbstractClassification end
 groupvar(::ClassYear) = :year;

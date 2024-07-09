@@ -1,7 +1,7 @@
 # Constants
 export FigExtension;
 export N2year, parentalUbV, hsGpaUbV;
-export DataAfqtVar, DataSchoolVar, DataParentalVar, DataQualityVar;
+export DataAfqtVar, DataSchoolVar, DataParentalVar;
 
 const N2year = 1;
 
@@ -15,7 +15,7 @@ const parentalUbV = 0.25 : 0.25 : 1.0;
 const DataAfqtVar = :afqt;
 const DataSchoolVar = :school;
 const DataParentalVar = :parental;
-const DataQualityVar = :last_type;
+# const DataQualityVar = :last_type;
 
 
 ## --------------  Debugging

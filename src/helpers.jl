@@ -17,10 +17,16 @@ CustomRNG(seed) = StableRNG(seed);
 # end
 
 
+function all_approx(xM :: AbstractArray, xTg :: Number; tol = 1e-4)
+    return all(x -> abs(x - xTg) <= tol, xM)
+end
+
+
 """
 	$(SIGNATURES)
 
 Convert Array to DataFrame. Index columns are categorical.
+Columns for `grpVars` just contain integers.
 """
 function array_to_df(m :: AbstractArray{T,N}, grpVars; 
         labelV = var_labels(grpVars), yStr = "Data") where {T, N}
@@ -28,6 +34,8 @@ function array_to_df(m :: AbstractArray{T,N}, grpVars;
     if N == 1
         labelV = [labelV];
     end
+    @assert labelV isa AbstractVector;
+    @assert length(labelV) == N;
     for iDim = 1 : N
         vn = labelV[iDim];
         idxM = idx_array(iDim, size(m));

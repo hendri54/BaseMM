@@ -1,7 +1,7 @@
 module BaseMM
 
 using CategoricalArrays, DataFrames, Dates, DocStringExtensions;
-using Formatting, PrettyTables, StableRNGs;
+using Format, PrettyTables, StableRNGs;
 using FilesLH, LatexLH, ModelParams, StructLH
 
 # Types
@@ -46,6 +46,7 @@ export ModelDollars, DataDollars, MDollars, DDollars;
 # Helpers
 export present_value, pv_factor, save_text_file, data_model_labels;
 export array_to_df, add_array_to_df!;
+export all_approx;
 export CustomRNG;
 
 # Debugging

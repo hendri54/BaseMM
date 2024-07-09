@@ -10,8 +10,16 @@ Move all constants here (those that are used for data or CollegeMM)
 Move to FilesLH
 - copy_file
 
+
+## Change Log 2024
+
+July 9
+- replaced Formatting.jl
+
 ## Change Log 2023
 
+Oct-2 (v1.5)
+- added ClassLastType
 Aug-12 (v1.4)
 - removed symbol based time conversions and dollar conversions
 - removed `dollars_to_data_units`

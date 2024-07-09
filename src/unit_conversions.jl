@@ -4,15 +4,6 @@
 const baseYear = 2000
 # Conversion factor for data dollars to model dollars
 const dollarFactor = 1000.0
-# Multiple a data dollar amount by this factor to make it annual
-# Deprecated
-# const dTimeFactors = Dict{Symbol,Float64}([
-#     :perYear => 1.0,
-#     :perMonth => 12.0,
-#     :perWeek => weeksPerYear,
-#     :perDay => daysPerYear,
-#     :perHour => hoursPerYear
-# ]);
 
 
 """
