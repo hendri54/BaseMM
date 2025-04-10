@@ -69,12 +69,27 @@ function array_to_df_test(nDims :: Integer)
 end
 
 
+function df_to_matrix_test()
+    @testset "Df to Matrix" begin
+        rng = MersenneTwister(54);
+        xM = rand(rng, 3, 4);
+        grpVars = [:ability, :parental];
+        df = array_to_df(xM, grpVars; yStr = "Data");
+
+        xM2, _ = df_to_matrix(df, :ability, :parental, :Data);
+        @test size(xM2) == size(xM);
+        @test all(isapprox.(xM2, xM));
+    end
+end
+
+
 @testset "Helpers" begin
     all_approx_test();
     present_value_test();
     for nd ∈ (1, 2, 3)
         array_to_df_test(nd);        
     end
+    df_to_matrix_test();
 end
 
 # -----------

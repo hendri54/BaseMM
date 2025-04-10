@@ -1,10 +1,12 @@
 export AbstractClassification, MultiClassification, Grouping;
 export ClassAll, ClassHsGpa, ClassParental, ClassRichPoor, ClassAbility;
-export ClassQuality, ClassLastType, ClassSchooling, ClassType, ClassYear, ClassDataModel;
+export ClassQuality, ClassQualOld, ClassQualNew, ClassLastType, ClassSchooling;
+export ClassType, ClassYear, ClassDataModel, ClassUpDown;
 
 export groupvar, n_classes, n_groupings;
-export suffix, data_suffix;
+export suffix, data_suffix, latex_sym;
 export var_label, var_labels, long_label, long_labels, short_label, short_labels;
+export subplot_label;
 export is_singleton;
 
 abstract type AbstractClassification end;
@@ -70,6 +72,12 @@ short_label(grpVars :: MultiClassification) =
 short_labels(classVar :: AbstractClassification, n :: Integer) = 
     ["$(short_label(classVar))$j"  for j = 1 : n];
 
+# For subplot headers, especially when they need to be short (e.g. 1x4)
+subplot_label(classVar :: AbstractClassification) = short_label(classVar);
+# E.g. "p1"
+subplot_label(classVar :: AbstractClassification, j :: Integer) = 
+    subplot_label(classVar) * "$j";
+
 
 suffix(x :: AbstractString) = x;
 suffix(v :: MultiClassification) = prod([suffix(x)  for x in v]);
@@ -105,8 +113,9 @@ suffix(::ClassHsGpa) = "G";  # e.g., "ByG"
 # class_var(ms, ::ClassHsGpa) = ms.hsGpaClass_jV;
 # n_classes(ms, ::ClassHsGpa) = CollegeStratData.n_gpa(ms);
 # For file names and other internals
-short_label(::ClassHsGpa) = "Afqt";
-long_label(::ClassHsGpa) = "Afqt";  # for legends
+short_label(::ClassHsGpa) = "AFQT";
+long_label(::ClassHsGpa) = "AFQT";  # for legends
+latex_sym(::ClassHsGpa) = "g";
 
 # By default: quartiles
 struct ClassParental <: AbstractClassification end
@@ -115,14 +124,16 @@ suffix(::ClassParental) = "P";
 # class_var(ms, ::ClassParental) = ms.parentalClass_jV;
 # n_classes(ms, ::ClassParental) = CollegeStratData.n_parental(ms);
 short_label(::ClassParental) = "Yp";
-long_label(::ClassParental) = "Parental";
+long_label(::ClassParental) = "Parental income";
+latex_sym(::ClassParental) = "p";
+subplot_label(::ClassParental) = "p";
 
 struct ClassRichPoor <: AbstractClassification end
 groupvar(::ClassRichPoor) = :richPoorClass;
 suffix(::ClassRichPoor) = "R";
 short_label(::ClassRichPoor) = "Rp";
-long_label(::ClassRichPoor) = "Rich v Poor";
-
+long_label(::ClassRichPoor) = "Higher vs lower income";
+latex_sym(::ClassRichPoor) = "r";
 
 struct ClassAbility <: AbstractClassification end
 groupvar(::ClassAbility) = :abilClass;
@@ -131,6 +142,17 @@ suffix(::ClassAbility) = "A";
 # n_classes(ms, ::ClassAbility) = n_abil(ms);
 short_label(::ClassAbility) = "Abil";
 long_label(::ClassAbility) = "Ability";
+latex_sym(::ClassAbility) = "a";
+subplot_label(::ClassAbility) = "a";
+
+struct ClassUpDown <: AbstractClassification end
+groupvar(::ClassUpDown) = :upDownClass;
+suffix(::ClassUpDown) = "U";
+n_classes(ms, ::ClassUpDown) = 3;
+short_label(::ClassUpDown) = "UpDown";
+long_label(::ClassUpDown) = "Up vs down";
+# latex_sym(::ClassUpDown) = "u";
+long_labels(::ClassUpDown, n :: Integer) = [LblUp, LblDown, LblNoChange];
 
 struct ClassQuality <: AbstractClassification end
 groupvar(::ClassQuality) = :quality;
@@ -138,7 +160,23 @@ suffix(::ClassQuality) = "Q";
 # n_classes(ms, ::ClassQuality) = n_colleges(ms);
 short_label(::ClassQuality) = "Qual";
 long_label(::ClassQuality) = "Quality";
+latex_sym(::ClassQuality) = "q";
+subplot_label(::ClassQuality) = "q";
 
+struct ClassQualOld <: AbstractClassification end;
+groupvar(::ClassQualOld) = :qOld;
+suffix(::ClassQualOld) = "Qold";
+short_label(::ClassQualOld) = "Qold";
+long_label(::ClassQualOld) = "Origin quality";
+latex_sym(::ClassQualOld) = "q_{old}";
+
+struct ClassQualNew <: AbstractClassification end;
+groupvar(::ClassQualNew) = :qNew;
+suffix(::ClassQualNew) = "Qnew";
+short_label(::ClassQualNew) = "Qnew";
+long_label(::ClassQualNew) = "Target quality";
+latex_sym(::ClassQualNew) = "q_{new}";
+    
 # Only for renaming regressors.
 struct ClassLastType <: AbstractClassification end;
 short_label(::ClassLastType) = "Qual";
@@ -150,6 +188,8 @@ suffix(::ClassYear) = "T";
 # n_classes(ms, ::ClassYear) = max_college_duration(ms);
 short_label(::ClassYear) = "Year";
 long_label(::ClassYear) = "Year";
+latex_sym(::ClassYear) = "t"; 
+
 
 struct ClassSchooling <: AbstractClassification end
 groupvar(::ClassSchooling) = :school;
@@ -157,6 +197,7 @@ suffix(::ClassSchooling) = "S";
 # n_classes(ms, ::ClassSchooling) = n_school(schoolS);
 short_label(::ClassSchooling) = "School";
 long_label(::ClassSchooling) = "Schooling";
+latex_sym(::ClassSchooling) = "s";
 
 struct ClassType <: AbstractClassification end
 groupvar(::ClassType) = :type;

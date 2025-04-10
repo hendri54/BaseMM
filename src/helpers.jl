@@ -76,6 +76,31 @@ function idx_array(iDim, sizeV)
 end
 
 
+"""
+Convert a DataFrame into a matrix.
+"""
+function df_to_matrix(df, xVar, yVar, valueVar)
+    xV = unique(df[!, xVar]);
+    yV = unique(df[!, yVar]);
+    nx = length(xV);
+    ny = length(yV);
+    T = eltype(df[!, valueVar]);
+    m = Array{Union{T,Missing}}(missing, nx, ny);
+    for dfRow in eachrow(df)
+        # Get the indices for x and y
+        xIdx = findfirst(x -> x == getproperty(dfRow, xVar), xV);
+        yIdx = findfirst(y -> y == getproperty(dfRow, yVar), yV);
+        if !isnothing(xIdx) && !isnothing(yIdx)
+            m[xIdx, yIdx] = getproperty(dfRow, valueVar);
+        end
+    end
+    if !any(ismissing.(m))
+        m = Matrix{T}(m);
+    end
+    return m, xV, yV
+end
+
+
 
 """
 	$(SIGNATURES)
